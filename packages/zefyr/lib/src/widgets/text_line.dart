@@ -109,6 +109,9 @@ class TextLine extends StatelessWidget {
     if (style.contains(NotusAttribute.link)) {
       result = result.merge(theme.link);
     }
+    if (style.contains(NotusAttribute.inlineCode)) {
+      result = result.merge(theme.inlineCode);
+    }
     return result;
   }
 }

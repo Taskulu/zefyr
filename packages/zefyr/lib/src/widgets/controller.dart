@@ -5,6 +5,12 @@ import 'package:notus/notus.dart';
 import 'package:quill_delta/quill_delta.dart';
 import 'package:zefyr/util.dart';
 
+List<String> _insertionToggleableStyleKeys = [
+  NotusAttribute.bold.key,
+  NotusAttribute.italic.key,
+  NotusAttribute.inlineCode.key,
+];
+
 class ZefyrController extends ChangeNotifier {
   ZefyrController([NotusDocument document])
       : document = document ?? NotusDocument(),
@@ -102,9 +108,7 @@ class ZefyrController extends ChangeNotifier {
     // _lastChangeSource = ChangeSource.local;
     final source = ChangeSource.local;
 
-    if (length == 0 &&
-        (attribute.key == NotusAttribute.bold.key ||
-            attribute.key == NotusAttribute.italic.key)) {
+    if (length == 0 && _insertionToggleableStyleKeys.contains(attribute.key)) {
       // Add the attribute to our toggledStyle. It will be used later upon insertion.
       _toggledStyles = toggledStyles.put(attribute);
     }

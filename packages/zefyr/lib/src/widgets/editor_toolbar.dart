@@ -399,6 +399,12 @@ class ZefyrToolbar extends StatefulWidget implements PreferredSizeWidget {
         icon: Icons.format_italic,
         controller: controller,
       ),
+      SizedBox(width: 1),
+      ToggleStyleButton(
+        attribute: NotusAttribute.inlineCode,
+        icon: Icons.code,
+        controller: controller,
+      ),
       VerticalDivider(indent: 16, endIndent: 16, color: Colors.grey.shade400),
       SelectHeadingStyleButton(controller: controller),
       VerticalDivider(indent: 16, endIndent: 16, color: Colors.grey.shade400),

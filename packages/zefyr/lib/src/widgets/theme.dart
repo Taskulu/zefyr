@@ -56,6 +56,7 @@ class VerticalSpacing {
   final double bottom;
 
   const VerticalSpacing({this.top = 0.0, this.bottom = 0.0});
+
   const VerticalSpacing.zero()
       : top = 0.0,
         bottom = 0.0;
@@ -67,6 +68,9 @@ class ZefyrThemeData {
 
   /// Style of italic text.
   final TextStyle italic;
+
+  /// Style of inline code text.
+  final TextStyle inlineCode;
 
   /// Style of links in text.
   final TextStyle link;
@@ -94,6 +98,7 @@ class ZefyrThemeData {
   ZefyrThemeData({
     this.bold,
     this.italic,
+    this.inlineCode,
     this.link,
     this.paragraph,
     this.heading1,
@@ -130,6 +135,11 @@ class ZefyrThemeData {
     return ZefyrThemeData(
       bold: TextStyle(fontWeight: FontWeight.bold),
       italic: TextStyle(fontStyle: FontStyle.italic),
+      inlineCode: TextStyle(
+          fontFamily: fontFamily,
+          fontSize: 13.0,
+          height: 1.15,
+          backgroundColor: Colors.grey),
       link: TextStyle(
         color: themeData.accentColor,
         decoration: TextDecoration.underline,
